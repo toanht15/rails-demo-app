@@ -50,7 +50,7 @@ end
   def forget
     update_attribute(:remember_digest, nil)
   end
-
+  private
   # Converts email to all lower-case.
   def downcase_email
     self.email = email.downcase
