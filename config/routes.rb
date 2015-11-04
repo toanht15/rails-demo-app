@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   get 'users/new'
 
   #get 'static_pages/home'
-  root 'static_pages#home'
+  #root 'static_pages#home'
+  root 'microposts#index'
+  
+  get 'home' => 'static_pages#home'
   
   get 'help' => 'static_pages#help'
 
@@ -24,6 +27,8 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
 
+  get 'microposts/index'
+
   resources :users do
     member do
       get :following, :followers
@@ -31,7 +36,7 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :microposts,          only: [:create, :destroy]
+  resources :microposts,          only: [:create, :destroy, :show, :index]
   resources :relationships,       only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

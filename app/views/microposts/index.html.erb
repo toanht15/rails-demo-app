@@ -1,0 +1,24 @@
+<h1>All Entries</h1>
+
+<%= @microposts.each do |micropost|%>
+<div class="post">
+<h1 style="text-align: left">
+	<a href="#">Blog Post Title</a>
+</h1>
+<p class="lead">
+	by <%= link_to micropost.user.name, micropost.user %>
+</p>
+<p><span class="glyphicon glyphicon-time"></span> Posted <%= time_ago_in_words(micropost.created_at) %> ago.</p>
+<p><%= micropost.content %> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<%= link_to "Read More", micropost , class: "btn btn-primary" %>
+<hr>
+</div>
+<% end %>
+
+ <%= will_paginate @microposts %>
