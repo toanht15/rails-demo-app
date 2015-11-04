@@ -1,30 +1,21 @@
    <div class="row">
     <!-- Blog Post Content Column -->
     <div class="col-lg-8">
-
         <!-- Blog Post -->
-
         <!-- Title -->
-        <h1 style="text-align: left">Blog Post Title</h1>
-
+        <h1 style="text-align: left"><%= @micropost.title %></h1>
         <!-- Author -->
         <p class="lead">
             by <%= link_to @micropost.user.name, @micropost.user %>
         </p>
-
         <hr>
-
         <!-- Date/Time -->
         <p><span class="glyphicon glyphicon-time"></span> Posted <%= time_ago_in_words(@micropost.created_at) %> ago.</p>
         <hr>
-
         <!-- Post Content -->
         <p class="lead"><%= @micropost.content %></p>
-
         <hr>
-
         <!-- Blog Comments -->
-
         <!-- Comments Form -->
         <div class="well">
             <h4>Leave a Comment:</h4>
@@ -35,11 +26,8 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-
         <hr>
-
         <!-- Posted Comments -->
-
         <!-- Comment -->
         <div class="media">
             <a class="pull-left" href="#">
@@ -52,7 +40,6 @@
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
             </div>
         </div>
-
         <!-- Comment -->
         <div class="media">
             <a class="pull-left" href="#">
