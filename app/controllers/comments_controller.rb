@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 	before_action :logged_in_user, only: [:create]
 	before_action :correct_user
+	before_action :get_user_of_micropost, only: [:create]
 	def create
 		@comment = current_user.comments.build(comment_params)
 		@comment.micropost = Micropost.find(params[:micropost_id])
@@ -22,6 +23,6 @@ class CommentsController < ApplicationController
 	def correct_user
       @comment = current_user.comments.find_by(id: params[:id])
       redirect_to root_url if @comment.nil?
-    end
+    end   
 	
 end

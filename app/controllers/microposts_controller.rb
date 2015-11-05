@@ -21,7 +21,7 @@ class MicropostsController < ApplicationController
 
 	#show posts for homepage
 	def index
-		@microposts = Micropost.all.paginate(page: params[:page])
+		@microposts = Micropost.paginate(page: params[:page])
 		#render 'index'
 	end
 
