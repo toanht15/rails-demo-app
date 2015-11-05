@@ -28,7 +28,9 @@ class MicropostsController < ApplicationController
 	#view a post
 
 	def show
-		#render 'show'
+		@comment = @micropost.comments.build
+		#@comments = @micropost.comments.find_by(id: params[:id]).to_a
+		@comments = @micropost.comments.includes(:user)
 	end
 
 	private

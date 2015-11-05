@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -36,7 +37,9 @@ Rails.application.routes.draw do
   end
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :microposts,          only: [:create, :destroy, :show, :index]
+  resources :microposts,          only: [:create, :destroy, :show, :index] do
+    resources :comments
+  end
   resources :relationships,       only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -74,8 +77,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end
