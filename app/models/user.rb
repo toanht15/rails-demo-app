@@ -100,11 +100,7 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following.include?(other_user)
   end
-
-  def to_s
-    name
-  end
-
+  
   private
   # Converts email to all lower-case.
   def downcase_email
