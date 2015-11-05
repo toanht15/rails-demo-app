@@ -1,6 +1,6 @@
 <h1>All Entries</h1>
 
-<%= @microposts.each do |micropost|%>
+<% @microposts.each do |micropost|%>
 <div class="post">
 <h1 style="text-align: left">
 	<%= link_to micropost.title, micropost %>
@@ -16,4 +16,4 @@
 </div>
 <% end %>
 
- <%= will_paginate @microposts %>
+ <%= will_paginate %>

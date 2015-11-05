@@ -22,14 +22,11 @@ class MicropostsController < ApplicationController
 	#show posts for homepage
 	def index
 		@microposts = Micropost.paginate(page: params[:page])
-		#render 'index'
 	end
 
 	#view a post
-
 	def show
 		@comment = @micropost.comments.build
-		#@comments = @micropost.comments.find_by(id: params[:id]).to_a
 		@comments = @micropost.comments.includes(:user)
 	end
 
