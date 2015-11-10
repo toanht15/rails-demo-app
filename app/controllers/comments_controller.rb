@@ -2,15 +2,17 @@ class CommentsController < ApplicationController
 	before_action :logged_in_user, only: [:create]
 	before_action :get_micropost, only:[:create]
 	before_action :check_follow, only:[:create]
+
 	def create
 		@comment = current_user.comments.build(comment_params)
 		@comment.micropost = Micropost.find(params[:micropost_id])
 		
 		if @comment.save
 			flash[:success] = "Comment created!"
-			redirect_to request.referrer || root_url
+			@micropost = Micropost.find(params[:micropost_id])
+			#redirect_to request.referrer || root_url
+			redirect_to micropost_path(@micropost)
 		else
-
 			@comments = @micropost.comments.includes(:user)
 			render 'microposts/show'
 		end

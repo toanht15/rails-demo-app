@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  #resources :comments
   get 'password_resets/new'
 
   get 'password_resets/edit'
